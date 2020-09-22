@@ -10,8 +10,8 @@
         <relativePath/>
     </parent>
 
-    <groupId>cn.tragroup.client.boot.base</groupId>
-    <artifactId>boot-client</artifactId>
+    <groupId>cn.tragroup</groupId>
+    <artifactId>spring-boot-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <description>快速创建 Spring Boot 项目</description>
 
