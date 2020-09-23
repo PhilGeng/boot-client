@@ -5,10 +5,11 @@
 
 
 ## 快速开始
-导入包后，创建Application
+导入包后，创建Application：将'xxx.xxx.xxx'换成你的包名
 ```java
 @SpringBootApplication
-@ComponentScan("cn.tragroup.bootparent") // 扫描预设包
+@MapperScan("xxx.xxx.xxx")
+@ComponentScan({PackageConstant.BASE_PACKAGE, "xxx.xxx.xxx"})
 public class PanoramaApplication {
     public static void main(String[] args) {
         SpringApplication.run(PanoramaApplication.class, args);
