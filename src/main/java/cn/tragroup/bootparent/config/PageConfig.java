@@ -1,16 +1,15 @@
 package cn.tragroup.bootparent.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * @author 耿传奇
+ * @create 2020-09-23 17:27
+ */
 @Configuration
-@Primary
-@Slf4j
-public class WebConfiguration implements WebMvcConfigurer {
+public class PageConfig {
 
     /**
      * 分页插件
@@ -19,6 +18,4 @@ public class WebConfiguration implements WebMvcConfigurer {
     public PaginationInterceptor paginationInterceptor() {
         return new PaginationInterceptor().setOverflow(true);
     }
-
-
 }
