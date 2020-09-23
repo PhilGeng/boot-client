@@ -13,7 +13,7 @@ public class FileConfigure {
     /* 文件上传根目录 */
     public static String FILE_ROOT_PATH;
 
-    @Value("${upload.path:../upload}")
+    @Value("${file.root-path:../upload}")
     public void setUploadRootPath(String uploadRootPath) throws IOException {
         FILE_ROOT_PATH = new File(uploadRootPath).getCanonicalPath();
         log.info("文件路径为：{}",uploadRootPath);
