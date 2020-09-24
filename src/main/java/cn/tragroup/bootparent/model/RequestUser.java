@@ -6,13 +6,12 @@ import lombok.Data;
  * @author 耿传奇
  * @create 2020-09-21 16:59
  */
-@Data
-public class RequestUser {
+public interface RequestUser {
 
-    private Integer id;
+    Integer getId();
 
-    private String name;
+    String getName();
 
-    private String realName;
+    String getRealName();
 
 }

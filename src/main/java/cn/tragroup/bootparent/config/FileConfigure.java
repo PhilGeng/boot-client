@@ -10,6 +10,7 @@ import java.io.IOException;
 @Configuration
 @Slf4j
 public class FileConfigure {
+
     /* 文件上传根目录 */
     public static String FILE_ROOT_PATH;
 
