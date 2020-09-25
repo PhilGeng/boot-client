@@ -17,15 +17,13 @@ public enum FileType {
 
     private final List<String> types;
 
-    public static final FileType[] values = FileType.values();
-
     FileType(String... types){
         this.types = Arrays.asList(types);
     }
 
-    static FileType get(String type){
+    public static FileType get(String type){
         type = type.toLowerCase();
-        for (FileType fileType : values) {
+        for (FileType fileType : FileType.values()) {
             if( fileType.getTypes().contains(type)) return fileType;
         }
         return UNKNOWN;
