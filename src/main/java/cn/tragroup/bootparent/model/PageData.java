@@ -28,6 +28,10 @@ public class PageData {
      */
     private int pages = 1;
     /**
+     * 是否正序
+     */
+    private Boolean asc;
+    /**
      * 排序的列名
      */
     private String order;
