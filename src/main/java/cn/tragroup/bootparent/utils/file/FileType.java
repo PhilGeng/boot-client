@@ -32,4 +32,5 @@ public enum FileType {
     public List<String> getTypes() {
         return types;
     }
+
 }
