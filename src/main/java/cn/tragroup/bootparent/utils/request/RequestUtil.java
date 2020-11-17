@@ -8,6 +8,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
 /**
@@ -21,23 +22,33 @@ public class RequestUtil {
         return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
     }
 
-    @SuppressWarnings("unchecked")
-    @Nullable
-    public static <T> T getSessionAttr(String key) {
-        return (T) getRequest().getSession().getAttribute(key);
-    }
-
     @Nullable
     public static RequestUser getSessionUser() {
         return getSessionAttr(RequestConstant.USER);
     }
 
     public static void setRequestUser(@Nullable RequestUser requestUser) {
-        getRequest().getSession().setAttribute(RequestConstant.USER, requestUser);
+        setSessionAttr(RequestConstant.USER, requestUser);
     }
 
     public static void removeRequestUser() {
-        getRequest().getSession().removeAttribute(RequestConstant.USER);
+        removeSessionAttr(RequestConstant.USER);
     }
 
+    public static HttpSession getSession() {
+        return RequestUtil.getRequest().getSession();
+    }
+
+    public static void setSessionAttr(String key, Object value) {
+        getSession().setAttribute(key, value);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T getSessionAttr(String key) {
+        return (T) getSession().getAttribute(key);
+    }
+
+    public static void removeSessionAttr(String key) {
+        getSession().removeAttribute(key);
+    }
 }

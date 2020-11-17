@@ -40,7 +40,7 @@ public class PageData {
     private transient List<String> whiteList = Arrays.asList("number", "create_time", "id", "total_time", "count");
 
     public void setOrder(String order) {
-        if (!contains(order)) throw new RuntimeException("未经允许的排序字段:[ " + order + " ]");
+        if (order != null && !contains(order)) throw new RuntimeException("未经允许的排序字段:[ " + order + " ]");
         this.order = order;
     }
 
@@ -52,7 +52,7 @@ public class PageData {
         return whiteList.contains(order);
     }
 
-    public <T> Page<T> generatePage(){
+    public <T> Page<T> generatePage() {
         Page<T> page = new Page<>();
         page.setCurrent(current);
         page.setSize(size);

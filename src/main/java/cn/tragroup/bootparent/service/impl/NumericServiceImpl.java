@@ -1,5 +1,6 @@
-package cn.tragroup.bootparent.service;
+package cn.tragroup.bootparent.service.impl;
 
+import cn.tragroup.bootparent.service.NumericService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

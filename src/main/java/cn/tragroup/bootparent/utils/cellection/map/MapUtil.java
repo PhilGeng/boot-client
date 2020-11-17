@@ -23,6 +23,10 @@ public class MapUtil {
         }
     }
 
+    public static String getString(Map map, String params) {
+        return get(map, params);
+    }
+
     public static Integer getInteger(Map map, String params) {
         return Optional.ofNullable(getNumber(map, params, Integer::parseInt))
                 .map(Number::intValue).orElse(null);

@@ -11,8 +11,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@SuppressWarnings("UnusedReturnValue")
-public class EditorModel {
+@SuppressWarnings({"UnusedReturnValue", "unchecked"})
+public class EditorModel<T> {
 
 
     @TableField(value = "crt_id", updateStrategy = FieldStrategy.NEVER)
@@ -26,19 +26,19 @@ public class EditorModel {
     private String updName;
 
 
-    public EditorModel setUpdater(RequestUser user) {
+    public T setUpdater(RequestUser user) {
         if (user != null) {
             this.updId = user.getId();
             this.updName = user.getRealName();
         }
-        return this;
+        return (T)this;
     }
 
-    public EditorModel setCreator(RequestUser user) {
+    public T setCreator(RequestUser user) {
         if (user != null) {
             this.crtId = user.getId();
             this.crtName = user.getRealName();
         }
-        return this;
+        return  (T)this;
     }
 }

@@ -22,7 +22,8 @@ public class JSON {
                 .registerModule(new JavaTimeModule())
                 .setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"))
                 .setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY)
-                .enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+//                .enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL)
+        ;
     }
 
     /**
