@@ -7,13 +7,16 @@
 
 
 ## 快速开始
+首先进行编译
+mvn clean install
 
-引入
+
+项目中引入
 ```xml
 <dependency>
     <groupId>cn.tragroup</groupId>
     <artifactId>quick-client-spring-boot-starter</artifactId>
-    <version>${lastVer5sion}</version>
+    <version>${lastVersion}</version>
 </dependency>
 ```
 
