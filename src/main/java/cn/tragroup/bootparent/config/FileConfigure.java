@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import java.io.File;
 import java.io.IOException;
 
-@Configuration
 @Slf4j
 public class FileConfigure {
 

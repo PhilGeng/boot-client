@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  */
 public interface IUpdate<Service extends IService<Entity>, Entity> extends IBase<Service, Entity> {
 
-    @PatchMapping("{id:\\d+}")
+    @PatchMapping("{id}")
     default HttpResult<Entity> change(@RequestBody Entity entity) {
         return HttpResult.success(getBaseService().updateById(entity) ? entity : null);
     }

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.LinkedHashMap;
 
 /**
  * 自己封装的jackson json转换器
@@ -39,6 +40,23 @@ public class JSON {
         T result = null;
         try {
             result = objectMapper.readValue(json, objectMapper.getTypeFactory().constructParametricType(target0, targets));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * 将json字符串转换成实体类
+     *
+     * @param json    要转换的json字符串
+     * @param clazz   返回的类
+     * @return 返回转换结果，失败则为null
+     */
+    public static <T> T fromJson(String json, Class<T> clazz) {
+        T result = null;
+        try {
+            result = objectMapper.readValue(json,clazz);
         } catch (IOException e) {
             e.printStackTrace();
         }

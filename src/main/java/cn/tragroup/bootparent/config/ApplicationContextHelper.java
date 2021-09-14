@@ -8,9 +8,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-@Component
 @Slf4j
-@Lazy(false)
 public class ApplicationContextHelper implements ApplicationContextAware {
 
     /**
