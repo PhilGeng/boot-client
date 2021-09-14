@@ -4,7 +4,20 @@
 
 
 
+
+
 ## 快速开始
+
+引入
+```xml
+<dependency>
+    <groupId>cn.tragroup</groupId>
+    <artifactId>quick-client-spring-boot-starter</artifactId>
+    <version>${lastVer5sion}</version>
+</dependency>
+```
+
+
 ```java
 @SpringBootApplication
 public class Application {
