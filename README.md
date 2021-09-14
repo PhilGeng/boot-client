@@ -5,14 +5,20 @@
 
 
 ## 快速开始
-导入包后，创建Application：将'xxx.xxx.xxx'换成你的包名
 ```java
 @SpringBootApplication
-@MapperScan("xxx.xxx.xxx")
-@ComponentScan({PackageConstant.BASE_PACKAGE, "xxx.xxx.xxx"})
-public class PanoramaApplication {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(PanoramaApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
 ```
+
+你将会拥有
+- 默认的json格式化配置。
+- 默认的redis配置 可以用tr.redis.enable关闭redis。
+- 默认的mybatis-plus配置 包含分页插件 数据库类型使用tr.mybatis-plus.db-type配置。
+- 默认的全局异常拦截。
+- 默认的全局返回格式为HttpResult。
+- 基础的controller，包含getlist getOne remove add update的默认接口。
+- 可以在字段上增加@Query更改默认的getList的字段筛选条件 比如Like eq等等。
