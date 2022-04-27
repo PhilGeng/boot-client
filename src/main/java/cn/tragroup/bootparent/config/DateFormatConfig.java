@@ -1,6 +1,7 @@
 package cn.tragroup.bootparent.config;
 
 import com.fasterxml.jackson.databind.deser.std.DateDeserializers;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
@@ -34,7 +35,8 @@ public class DateFormatConfig {
                 .serializerByType(LocalDate.class, new LocalDateSerializer(dateFormatter))
                 .deserializerByType(LocalDateTime.class, new LocalDateTimeDeserializer(dateTimeFormatter))
                 .deserializerByType(LocalDate.class, new LocalDateDeserializer(dateFormatter))
-                .deserializerByType(Date.class, new DateDeserializers.DateDeserializer());
+                .deserializerByType(Date.class, new DateDeserializers.DateDeserializer())
+                .deserializerByType(java.sql.Date.class, new DateDeserializers.SqlDateDeserializer());
     }
 
 }

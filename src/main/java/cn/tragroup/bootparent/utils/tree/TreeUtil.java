@@ -40,12 +40,17 @@ public class TreeUtil {
         List<Entity> res = new ArrayList<>();
         List<Entity> tempList = new ArrayList<>();
         Map<I, Entity> map = new HashMap<>();
+
         // 遍历源数据
-        for (Entity item : source) {// 将所有数据放入Map中
+        for (Entity item : source) {
+
+            // 将所有数据放入Map中
             map.put(item.getId(), item);
-            var parentId = item.getParentId();
-            if (!parentId.equals(root)) {
-                var entity = map.get(parentId);
+
+            I parentId = item.getParentId();
+            if (!root.equals(parentId)) {
+
+                Entity entity = map.get(parentId);
                 // 找到父对象
                 if (entity != null) {
                     setChildrenValue(entity,item);
@@ -53,19 +58,26 @@ public class TreeUtil {
                     // 没找到父对象可能此时顺序问题，先缓存起来
                     tempList.add(item);
                 }
+
             } else {
-                // 顶级数据 ， 直接放入跟级
+                // 顶级数据 ， 直接放入根级
                 res.add(item);
             }
         }
+
+        // 将之前没有找到父对象的内容，重新加入
         for (Entity item : tempList) {
-            var parent = map.get(item.getParentId());
+
+            Entity parent = map.get(item.getParentId());
+
             if(parent != null){
                 setChildrenValue(parent,item);
             }else{
                 log.error("id:[{}],parentId:[{}]未找到对应的父类。",item.getId(),item.getParentId());
             }
+
         }
+
         return new TreeResult<>(res, map);
     }
 
@@ -74,7 +86,7 @@ public class TreeUtil {
     }
 
     public static <I, Entity extends TreeModel<I, Entity>> List<Entity> getAllEntity(List<Entity> source, I id, I root) {
-        var map = makeTreeResult(source, root).getMapping();
+        Map<I, Entity> map = makeTreeResult(source, root).getMapping();
         return TreeUtil.getAllEntity(map.get(id), new ArrayList<>());
     }
 
@@ -104,12 +116,11 @@ public class TreeUtil {
 
 
     private static <I, Entity extends TreeModel<I, Entity>> void setChildrenValue(Entity parent, Entity children){
-        var list = parent.getChildren();
+        List<Entity> list = parent.getChildren();
         if (list == null) {
             list = new ArrayList<>();
             parent.setChildren(list);
         }
         list.add(children);
     }
-
 }
