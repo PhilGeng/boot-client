@@ -1,0 +1,8 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.tragroup.bootparent.auto.AutoTrConfiguration,\
+  cn.tragroup.bootparent.config.ApplicationContextHelper,\
+  cn.tragroup.bootparent.config.FileWebMvcConfigurer,\
+  cn.tragroup.bootparent.config.ExceptionAdvice,\
+  cn.tragroup.bootparent.config.MyBatisPlusConfig,\
+  cn.tragroup.bootparent.config.DateFormatterWebConfigure,\
+  cn.tragroup.bootparent.config.RedisConfig

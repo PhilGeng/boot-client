@@ -20,10 +20,10 @@ public abstract class AbstractBaseController<Service extends IService<Entity>, E
         return baseService;
     }
 
-    protected HttpResult<Object> error(){
+    protected <T>  HttpResult<T> error(){
         return HttpResult.error();
     }
-    protected HttpResult<Object> success(){
+    protected <T>  HttpResult<T> success(){
         return HttpResult.success();
     }
     protected <T> HttpResult<T> success(T data){
