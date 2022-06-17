@@ -11,7 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "tr.redis")
 public class RedisTrProperties {
-    private boolean enable = true;
+    private boolean enable = false;
 
 
     public boolean isEnable() {

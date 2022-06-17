@@ -22,7 +22,7 @@ public class FileHandleTrProperties {
 
     private String mapping = "/file/**";
 
-    private boolean enable;
+    private boolean enable = false;
 
     private String rootPath = "../upload";
 

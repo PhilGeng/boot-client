@@ -15,7 +15,6 @@ import java.text.MessageFormat;
  * @create 2020-10-14 09:07
  */
 @Slf4j
-@ConditionalOnExpression("${tr.file-handle.enable}")
 public class FileWebMvcConfigurer implements WebMvcConfigurer {
 
     private final FileHandleTrProperties config;

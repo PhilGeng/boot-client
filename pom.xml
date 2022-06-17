@@ -18,6 +18,7 @@
     <properties>
         <java.version>11</java.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <dynamic-datasource.version>3.5.1</dynamic-datasource.version>
     </properties>
 
     <dependencies>
@@ -87,6 +88,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>${dynamic-datasource.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.3</version>
         </dependency>
 
     </dependencies>

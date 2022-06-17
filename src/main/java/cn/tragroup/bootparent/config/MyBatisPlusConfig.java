@@ -32,8 +32,13 @@ public class MyBatisPlusConfig {
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-        interceptor.addInnerInterceptor(getDynamicTableNameInnerInterceptor());
+
+        InnerInterceptor dynamicTableNameInnerInterceptor = getDynamicTableNameInnerInterceptor();
+        if(dynamicTableNameInnerInterceptor != null)
+            interceptor.addInnerInterceptor(dynamicTableNameInnerInterceptor);
+
         interceptor.addInnerInterceptor(getPageInnerInterceptor());
+
         return interceptor;
     }
 
@@ -49,11 +54,11 @@ public class MyBatisPlusConfig {
 
 
     InnerInterceptor getDynamicTableNameInnerInterceptor() {
-        DynamicTableNameInnerInterceptor interceptor = new DynamicTableNameInnerInterceptor();
         MyBatisPlusTrProperties.DynamicTable dynamic = myBatisPlusTrProperties.getDynamic();
         var location = dynamic.getLocation();
 
         if(location != null){
+            DynamicTableNameInnerInterceptor interceptor = new DynamicTableNameInnerInterceptor();
             List<Class<?>> classList = ClassUtil.getClassByAnnotation(location, dynamic.getResourcePattern(), DynamicTable.class);
 
             HashMap<String,DynamicTable> cacheTables = new HashMap<>();
@@ -74,10 +79,11 @@ public class MyBatisPlusConfig {
                 }
                 return tableName;
             });
+
+            return interceptor;
         }
 
-
-        return interceptor;
+        return null;
     }
 
 }
