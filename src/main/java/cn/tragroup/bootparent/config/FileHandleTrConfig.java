@@ -22,4 +22,6 @@ public class FileHandleTrConfig {
     FileWebMvcConfigurer fileWebMvcConfigurer(FileHandleTrProperties config) {
         return new FileWebMvcConfigurer(config);
     }
+
+
 }

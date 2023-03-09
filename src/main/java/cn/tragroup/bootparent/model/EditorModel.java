@@ -31,7 +31,7 @@ public class EditorModel<T> {
             this.updId = user.getId();
             this.updName = user.getRealName();
         }
-        return (T)this;
+        return (T) this;
     }
 
     public T setCreator(RequestUser user) {
@@ -39,6 +39,6 @@ public class EditorModel<T> {
             this.crtId = user.getId();
             this.crtName = user.getRealName();
         }
-        return  (T)this;
+        return (T) this;
     }
 }

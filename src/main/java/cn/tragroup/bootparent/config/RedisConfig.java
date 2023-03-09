@@ -14,7 +14,6 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-@ConditionalOnExpression("${tr.redis.enable}")
 public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
